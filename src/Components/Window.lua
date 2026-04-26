@@ -37,16 +37,16 @@ return function(Config)
 	Window.TabWidth = Config.TabWidth
 
 	local Selector = New("Frame", {
-		Size = UDim2.fromOffset(4, 0),
-		BackgroundColor3 = Color3.fromRGB(76, 194, 255),
-		Position = UDim2.fromOffset(0, 17),
+		Size = UDim2.fromOffset(3, 0),
+		BackgroundColor3 = Color3.fromRGB(255, 255, 255),
+		Position = UDim2.fromOffset(0, 22),
 		AnchorPoint = Vector2.new(0, 0.5),
 		ThemeTag = {
 			BackgroundColor3 = "Accent",
 		},
 	}, {
 		New("UICorner", {
-			CornerRadius = UDim.new(0, 2),
+			CornerRadius = UDim.new(1, 0),
 		}),
 	})
 
@@ -66,7 +66,7 @@ return function(Config)
 		ScrollingDirection = Enum.ScrollingDirection.Y,
 	}, {
 		New("UIListLayout", {
-			Padding = UDim.new(0, 4),
+			Padding = UDim.new(0, 6),
 		}),
 	})
 
@@ -84,12 +84,12 @@ return function(Config)
 		RichText = true,
 		Text = "Tab",
 		TextTransparency = 0,
-		FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.SemiBold, Enum.FontStyle.Normal),
-		TextSize = 28,
+		FontFace = Font.new("rbxassetid://12187365364", Enum.FontWeight.Bold, Enum.FontStyle.Normal),
+		TextSize = 32,
 		TextXAlignment = "Left",
 		TextYAlignment = "Center",
-		Size = UDim2.new(1, -16, 0, 28),
-		Position = UDim2.fromOffset(Window.TabWidth + 26, 56),
+		Size = UDim2.new(1, -16, 0, 32),
+		Position = UDim2.fromOffset(Window.TabWidth + 26, 54),
 		BackgroundTransparency = 1,
 		ThemeTag = {
 			TextColor3 = "Text",
@@ -149,7 +149,7 @@ return function(Config)
 		Y = Window.Position.Y.Offset,
 	})
 
-	Window.SelectorPosMotor = Flipper.SingleMotor.new(17)
+	Window.SelectorPosMotor = Flipper.SingleMotor.new(22)
 	Window.SelectorSizeMotor = Flipper.SingleMotor.new(0)
 	Window.ContainerBackMotor = Flipper.SingleMotor.new(0)
 	Window.ContainerPosMotor = Flipper.SingleMotor.new(94)
@@ -165,19 +165,19 @@ return function(Config)
 	local LastValue = 0
 	local LastTime = 0
 	Window.SelectorPosMotor:onStep(function(Value)
-		Selector.Position = UDim2.new(0, 0, 0, Value + 17)
+		Selector.Position = UDim2.new(0, 0, 0, Value + 22)
 		local Now = tick()
 		local DeltaTime = Now - LastTime
 
 		if LastValue ~= nil then
-			Window.SelectorSizeMotor:setGoal(Spring((math.abs(Value - LastValue) / (DeltaTime * 60)) + 16))
+			Window.SelectorSizeMotor:setGoal(Spring((math.abs(Value - LastValue) / (DeltaTime * 60)) + 20))
 			LastValue = Value
 		end
 		LastTime = Now
 	end)
 
 	Window.SelectorSizeMotor:onStep(function(Value)
-		Selector.Size = UDim2.new(0, 4, 0, Value)
+		Selector.Size = UDim2.new(0, 3, 0, Value)
 	end)
 
 	Window.ContainerBackMotor:onStep(function(Value)
@@ -387,7 +387,7 @@ return function(Config)
 	end
 
 	Creator.AddSignal(Window.TabHolder:GetPropertyChangedSignal("CanvasPosition"), function()
-		LastValue = TabModule:GetCurrentTabPos() + 16
+		LastValue = TabModule:GetCurrentTabPos() + 20
 		LastTime = 0
 		Window.SelectorPosMotor:setGoal(Instant(TabModule:GetCurrentTabPos()))
 	end)

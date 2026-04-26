@@ -86,10 +86,10 @@ return function(Config)
 				Text = Config.Title,
 				FontFace = Font.new(
 					"rbxasset://fonts/families/GothamSSm.json",
-					Enum.FontWeight.Regular,
+					Enum.FontWeight.SemiBold,
 					Enum.FontStyle.Normal
 				),
-				TextSize = 12,
+				TextSize = 14,
 				TextXAlignment = "Left",
 				TextYAlignment = "Center",
 				Size = UDim2.fromScale(0, 1),
@@ -102,13 +102,13 @@ return function(Config)
 			New("TextLabel", {
 				RichText = true,
 				Text = Config.SubTitle,
-				TextTransparency = 0.4,
+				TextTransparency = 0.35,
 				FontFace = Font.new(
 					"rbxasset://fonts/families/GothamSSm.json",
-					Enum.FontWeight.Regular,
+					Enum.FontWeight.Medium,
 					Enum.FontStyle.Normal
 				),
-				TextSize = 12,
+				TextSize = 14,
 				TextXAlignment = "Left",
 				TextYAlignment = "Center",
 				Size = UDim2.fromScale(0, 1),
