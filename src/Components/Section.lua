@@ -7,7 +7,7 @@ return function(Title, Parent)
 	local Section = {}
 
 	Section.Layout = New("UIListLayout", {
-		Padding = UDim.new(0, 5),
+		Padding = UDim.new(0, 8),
 	})
 
 	Section.Container = New("Frame", {

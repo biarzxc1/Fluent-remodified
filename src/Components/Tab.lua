@@ -50,7 +50,7 @@ function TabModule:New(Title, Icon, Parent)
 	end
 
 	Tab.Frame = New("TextButton", {
-		Size = UDim2.new(1, 0, 0, 34),
+		Size = UDim2.new(1, 0, 0, 44),
 		BackgroundTransparency = 1,
 		Parent = Parent,
 		ThemeTag = {
@@ -58,24 +58,24 @@ function TabModule:New(Title, Icon, Parent)
 		},
 	}, {
 		New("UICorner", {
-			CornerRadius = UDim.new(0, 6),
+			CornerRadius = UDim.new(0, 8),
 		}),
 		New("TextLabel", {
 			AnchorPoint = Vector2.new(0, 0.5),
-			Position = Icon and UDim2.new(0, 30, 0.5, 0) or UDim2.new(0, 12, 0.5, 0),
-			Text = Title,
+			Position = Icon and UDim2.new(0, 38, 0.5, 0) or UDim2.new(0, 16, 0.5, 0),
+			Text = "| " .. Title,
 			RichText = true,
 			TextColor3 = Color3.fromRGB(255, 255, 255),
 			TextTransparency = 0,
 			FontFace = Font.new(
 				"rbxasset://fonts/families/GothamSSm.json",
-				Enum.FontWeight.Regular,
+				Enum.FontWeight.Medium,
 				Enum.FontStyle.Normal
 			),
-			TextSize = 12,
+			TextSize = 15,
 			TextXAlignment = "Left",
 			TextYAlignment = "Center",
-			Size = UDim2.new(1, -12, 1, 0),
+			Size = UDim2.new(1, -16, 1, 0),
 			BackgroundTransparency = 1,
 			ThemeTag = {
 				TextColor3 = "Text",
@@ -83,8 +83,8 @@ function TabModule:New(Title, Icon, Parent)
 		}),
 		New("ImageLabel", {
 			AnchorPoint = Vector2.new(0, 0.5),
-			Size = UDim2.fromOffset(16, 16),
-			Position = UDim2.new(0, 8, 0.5, 0),
+			Size = UDim2.fromOffset(18, 18),
+			Position = UDim2.new(0, 12, 0.5, 0),
 			BackgroundTransparency = 1,
 			Image = Icon and Icon or nil,
 			ThemeTag = {
